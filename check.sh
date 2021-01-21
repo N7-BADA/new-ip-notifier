@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Sync with configs
-source /home/username/documents/ip-change-detection/info.conf       # Set correct Path
+source ./info.conf
 
 sendMessage() {
 MESSAGE=$1
@@ -12,7 +12,7 @@ echo -e;
 }
 
 IP=$(curl ipecho.net/plain)
-DIFF=$(diff /home/username/documents/current.txt <(echo "$IP"))     # Set correct Path
+DIFF=$(diff ./current.txt <(echo "$IP"))
 if [ "$IP" ]
 then
 
@@ -21,8 +21,8 @@ then
         :
     elif [ "$DIFF" != "" ]
     then
-        mv /home/username/documents/current.txt /tmp/old.txt        # Set correct Path
-        echo "$IP" >/home/username/documents/current.txt            # Set correct Path
+        mv ./current.txt ./old.txt
+        echo "$IP" >./current.txt
         sendMessage "New Server IP $IP" && curl -s "https://api.telegram.org/bot${BOT_API_KEY}/sendSticker?chat_id=$CHAT_ID&sticker=$STICKER_ID"  1> /dev/null
     fi
 else    

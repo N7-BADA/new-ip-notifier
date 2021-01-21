@@ -4,7 +4,6 @@ Setup:
 1. Get your bot API key from [Telegram's BotFather](https://t.me/BotFather)
 2. Get your CHAT_ID from [Telegram's MissRose_bot](https://t.me/@MissRose_bot) by typing `/id`
 3. Assign BOT API Key and CHAT_ID in `info.conf`
-4. Edit the correct paths in `check.sh`on line 4, 15, 24, 25
 
 ## Usage
 
